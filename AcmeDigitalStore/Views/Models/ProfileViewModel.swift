@@ -5,6 +5,7 @@
 //  Created by Arup Sarkar (TA) on 11/23/24.
 //
 import Combine
+import SwiftUI
 
 final class ProfileViewModel: ObservableObject {
     @Published var profileId: String = ""
@@ -15,6 +16,12 @@ final class ProfileViewModel: ObservableObject {
     
     private var cancellables = Set<AnyCancellable>()
     private let profileService = ProfileService.shared
+    @AppStorage("unifiedIndividualId") private var unifiedIndividualId: String = ""
+    
+    
+    private func storeUnifiedIndividualId(_ unifiedId: String) {
+        unifiedIndividualId = unifiedId
+    }
     
     func fetchProfile(accessToken: String, instanceUrl: String) {
         guard !profileId.isEmpty else { return }
@@ -38,6 +45,7 @@ final class ProfileViewModel: ObservableObject {
             receiveValue: { [weak self] response in
                 if let firstProfile = response.data.first {
                     self?.profile = firstProfile
+                    self?.storeUnifiedIndividualId(self?.profile?.externalRecordId ?? "unknown")
                 }
             }
         )

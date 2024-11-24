@@ -14,19 +14,37 @@ struct HomeView: View {
     
     var body: some View {
         NavigationView{
-            VStack {
-                SearchBar(text: $viewModel.searchText, viewModel: viewModel)
+            VStack(spacing: 0) {
                 
+                // Modern Header
+                VStack(alignment: .leading, spacing: 12) {
+                    Text("Acme Store")
+                        .font(.largeTitle.bold())
+//                    Text("Discover Amazing Products")
+//                        .font(.title2.weight(.semibold))
+//                        .foregroundStyle(.primary)
+                    Text("Shop with confidence")
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding()
+                .background(Color(.systemBackground))
+                
+                
+                SearchBar(text: $viewModel.searchText, viewModel: viewModel)
                 if viewModel.searchText.isEmpty {
-                    TrendingProductsView(trendingProducts: viewModel.trendingProducts, viewModel: viewModel)
-                                        MostSearchedView(mostSearchedProducts: viewModel.mostSearchedProducts, viewModel: viewModel)
-                }else {
+                    ScrollView {
+                        VStack(spacing: 20) {
+                            TrendingProductsView(trendingProducts: viewModel.trendingProducts, viewModel: viewModel)
+                            MostSearchedView(mostSearchedProducts: viewModel.mostSearchedProducts, viewModel: viewModel)
+                        }
+                    }
+                } else {
                     SearchResultsView(results: viewModel.searchResults, viewModel: viewModel)
                 }
-                
-                //ShoppingCartButton(viewModel: viewModel)
             }
-            .navigationTitle("Acme Digital Store")
+            .navigationBarTitleDisplayMode(.inline)
             .trackScreen("HomeView")
             
             .toolbar {

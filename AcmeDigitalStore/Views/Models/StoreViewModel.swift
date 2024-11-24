@@ -60,11 +60,12 @@ class StoreViewModel: ObservableObject {
         }
         // Notify the UI about updates
         objectWillChange.send()
-//        // Mocked search results based on the search text
-//        searchResults = Product.mockAllProducts().filter { product in
-//            product.name.lowercased().contains(searchText.lowercased())
-//        }
-
+    }
+    
+    func emptyShoppingCart() {
+        logger.debug("Clearing shopping cart.")
+        shoppingCart.removeAll()
+        objectWillChange.send()
     }
     
     func authenticateUser() {

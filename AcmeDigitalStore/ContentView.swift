@@ -32,11 +32,6 @@ struct ContentView: View {
                     Image(systemName: "house.fill")
                     Text("Home")
                 }
-//            ShoppingCartView(cart: $viewModel.shoppingCart, viewModel: viewModel)
-//                            .tabItem {
-//                                Image(systemName: "cart.fill")
-//                                Text("Cart")
-//                            }
             AccountView()
                 .tabItem {
                     Image(systemName: "person.crop.circle.fill")

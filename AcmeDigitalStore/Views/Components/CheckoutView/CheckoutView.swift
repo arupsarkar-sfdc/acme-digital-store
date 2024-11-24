@@ -10,43 +10,51 @@ struct CheckoutView: View {
     @ObservedObject var viewModel: StoreViewModel
     @State private var paymentProcessing = false
     @State private var paymentSuccessMessage: String? = nil
+    @State private var countdown = 4
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
-        VStack(spacing: 20) {
-            Text("Checkout")
-                .font(.largeTitle)
-                .padding()
-            
-            Text("Total Items: \(totalItems())")
-            Text("Total Price: $\(totalPrice(), specifier: "%.2f")")
-            
-            Button(action: {
-                simulatePayment()
-            }) {
-                HStack{
-                    Image(systemName: "creditcard.fill")
-                    Text("Complete Payment")
+        NavigationView {
+            VStack(spacing: 20) {
+                Text("Checkout")
+                    .font(.largeTitle)
+                    .padding()
+                
+                Text("Total Items: \(totalItems())")
+                Text("Total Price: $\(totalPrice(), specifier: "%.2f")")
+                
+                Button(action: {
+                    simulatePayment()
+                }) {
+                    HStack{
+                        Image(systemName: "creditcard.fill")
+                        Text("Complete Payment")
+                    }
+                    .font(.headline)
+                    .foregroundColor(.white)
+                    .padding()
+                    .background(Color.green)
+                    .cornerRadius(8)
+
+
                 }
-                .font(.headline)
-                .foregroundColor(.white)
                 .padding()
-                .background(Color.green)
-                .cornerRadius(8)
-
-
+                .disabled(paymentProcessing)
+                
+                if let message = paymentSuccessMessage {
+                    
+                    VStack(spacing: 8) {
+                        Text(message)
+                            .foregroundColor(.green)
+                    }
+                    .padding()
+                }
             }
             .padding()
-            .disabled(paymentProcessing)
-            
-            if let message = paymentSuccessMessage {
-                Text(message)
-                    .foregroundColor(.green)
-                    .padding()
-            }
+            .navigationTitle("Checkout")
+            .trackScreen("CheckoutViewScreen")
         }
-        .padding()
-        .navigationTitle("Checkout")
-        .trackScreen("CheckoutViewScreen")
+
     }
     
     private func totalItems() -> Int {
@@ -59,9 +67,11 @@ struct CheckoutView: View {
     
     private func simulatePayment() {
         paymentProcessing = true
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             paymentProcessing = false
             paymentSuccessMessage = "Payment processed successfully"
         }
     }
+    
 }
