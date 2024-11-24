@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		E63CE4792CEAFBE800349FF6 /* Cdp in Frameworks */ = {isa = PBXBuildFile; productRef = E63CE4782CEAFBE800349FF6 /* Cdp */; };
+		E63CE47B2CEAFBED00349FF6 /* SFMCSDK in Frameworks */ = {isa = PBXBuildFile; productRef = E63CE47A2CEAFBED00349FF6 /* SFMCSDK */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		E637D9D02CC94D1E00B693ED /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -29,9 +34,22 @@
 		E637D9D92CC94D1E00B693ED /* AcmeDigitalStoreUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AcmeDigitalStoreUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		E622AFB32CEBFA43009F9285 /* Exceptions for "AcmeDigitalStore" folder in "AcmeDigitalStore" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = E637D9BE2CC94D1C00B693ED /* AcmeDigitalStore */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		E637D9C12CC94D1C00B693ED /* AcmeDigitalStore */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				E622AFB32CEBFA43009F9285 /* Exceptions for "AcmeDigitalStore" folder in "AcmeDigitalStore" target */,
+			);
 			path = AcmeDigitalStore;
 			sourceTree = "<group>";
 		};
@@ -52,6 +70,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E63CE47B2CEAFBED00349FF6 /* SFMCSDK in Frameworks */,
+				E63CE4792CEAFBE800349FF6 /* Cdp in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +98,7 @@
 				E637D9C12CC94D1C00B693ED /* AcmeDigitalStore */,
 				E637D9D22CC94D1E00B693ED /* AcmeDigitalStoreTests */,
 				E637D9DC2CC94D1E00B693ED /* AcmeDigitalStoreUITests */,
+				E63CE4772CEAFBE800349FF6 /* Frameworks */,
 				E637D9C02CC94D1C00B693ED /* Products */,
 			);
 			sourceTree = "<group>";
@@ -90,6 +111,13 @@
 				E637D9D92CC94D1E00B693ED /* AcmeDigitalStoreUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		E63CE4772CEAFBE800349FF6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -112,6 +140,8 @@
 			);
 			name = AcmeDigitalStore;
 			packageProductDependencies = (
+				E63CE4782CEAFBE800349FF6 /* Cdp */,
+				E63CE47A2CEAFBED00349FF6 /* SFMCSDK */,
 			);
 			productName = AcmeDigitalStore;
 			productReference = E637D9BF2CC94D1C00B693ED /* AcmeDigitalStore.app */;
@@ -195,6 +225,10 @@
 			);
 			mainGroup = E637D9B62CC94D1C00B693ED;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				E637DA2E2CC9F7A500B693ED /* XCRemoteSwiftPackageReference "sfmc-sdk-ios" */,
+				E637DA2F2CC9F7CA00B693ED /* XCRemoteSwiftPackageReference "mobile-sdk-cdp-ios" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = E637D9C02CC94D1C00B693ED /* Products */;
 			projectDirPath = "";
@@ -399,6 +433,11 @@
 				DEVELOPMENT_TEAM = QYYB9FH2U5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AcmeDigitalStore/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We use your location to provide personalized shopping recommendations.";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "This identifier will be used to deliver personalized shopping recommendations and improve your shopping experience.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -428,6 +467,11 @@
 				DEVELOPMENT_TEAM = QYYB9FH2U5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AcmeDigitalStore/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We use your location to provide personalized shopping recommendations.";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "This identifier will be used to deliver personalized shopping recommendations and improve your shopping experience.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -558,6 +602,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E637DA2E2CC9F7A500B693ED /* XCRemoteSwiftPackageReference "sfmc-sdk-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/salesforce-marketingcloud/sfmc-sdk-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.2;
+			};
+		};
+		E637DA2F2CC9F7CA00B693ED /* XCRemoteSwiftPackageReference "mobile-sdk-cdp-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/salesforce-marketingcloud/mobile-sdk-cdp-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E63CE4782CEAFBE800349FF6 /* Cdp */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E637DA2F2CC9F7CA00B693ED /* XCRemoteSwiftPackageReference "mobile-sdk-cdp-ios" */;
+			productName = Cdp;
+		};
+		E63CE47A2CEAFBED00349FF6 /* SFMCSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E637DA2E2CC9F7A500B693ED /* XCRemoteSwiftPackageReference "sfmc-sdk-ios" */;
+			productName = SFMCSDK;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E637D9B72CC94D1C00B693ED /* Project object */;
 }
