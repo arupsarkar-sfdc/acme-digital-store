@@ -11,6 +11,7 @@ import SwiftUI
 struct HomeView: View {
     @StateObject private var viewModel = StoreViewModel()
     @State private var showProfileModal = false
+    @StateObject private var personalizationViewModel = EinsteinPersonalizationViewModel()
     
     var body: some View {
         NavigationView{
@@ -55,6 +56,11 @@ struct HomeView: View {
                         Label("Profile", systemImage: "person.crop.circle")
                     }
                 }
+                
+                ToolbarItem(placement: .principal) {
+                                    NotificationBubbleView()
+                                }
+                
                 ToolbarItem(placement: .navigationBarTrailing) {
                     NavigationLink(destination: ShoppingCartView(cart: $viewModel.shoppingCart, viewModel: viewModel)) {
                         ZStack(alignment: .topTrailing) {
@@ -82,6 +88,7 @@ struct HomeView: View {
                 ProfileFormView()
             }
         }
+        .environmentObject(viewModel)
 
         
         

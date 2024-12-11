@@ -46,6 +46,7 @@ struct CheckoutView: View {
                     VStack(spacing: 8) {
                         Text(message)
                             .foregroundColor(.green)
+
                     }
                     .padding()
                 }
@@ -71,6 +72,10 @@ struct CheckoutView: View {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             paymentProcessing = false
             paymentSuccessMessage = "Payment processed successfully"
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                viewModel.emptyShoppingCart()
+            }
         }
     }
     

@@ -11,6 +11,7 @@ struct ProfileCardView: View {
     @StateObject private var viewModel = ProfileViewModel()
     let token: TokenResponse.Token
     private let logger = DataCloudLoggingService.shared
+    @FocusState private var textfieldFocused: Bool
     
     private func formatBirthDate(_ dateString: String) -> String {
         let formatter = DateFormatter()
@@ -24,9 +25,27 @@ struct ProfileCardView: View {
     
     var body: some View {
         VStack(spacing: 16) {
-            TextField("Enter Profile ID", text: $viewModel.profileId)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
+//            TextField("Enter Profile ID", text: $viewModel.profileId)
+//                .textFieldStyle(RoundedBorderTextFieldStyle())
+//                .padding(.horizontal)
+//                .onReceive(NotificationCenter.default.publisher(for: UIPasteboard.changedNotification)) { _ in
+//                     if let pastedString = UIPasteboard.general.string {
+//                         viewModel.profileId = pastedString
+//                     }
+//                 }
+            TextEditor(text: $viewModel.profileId)
+                .frame(height: 40)
+                .padding(4)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 8)
+                        .stroke(Color.gray.opacity(0.2), lineWidth: 1)
+                )
+                .autocorrectionDisabled()
                 .padding(.horizontal)
+                .focused($textfieldFocused)
+                            .onLongPressGesture(minimumDuration: 0.0) {
+                                textfieldFocused = true
+                }
             
             Button(action: {
                 viewModel.fetchProfile(
