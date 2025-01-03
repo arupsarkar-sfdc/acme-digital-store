@@ -80,7 +80,11 @@ final class DataCloudService {
         
         let sdkConfig = ConfigBuilder()
             .setCdp(config: cdpConfig, onCompletion: completionHandler)
+            .setPush(config: cdpConfig, onCompletion: completionHandler)
             .build()
+        
+        
+
         
         SFMCSdk.initializeSdk(sdkConfig)
         

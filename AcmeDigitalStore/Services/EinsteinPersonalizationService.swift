@@ -8,6 +8,8 @@
 
 import Combine
 import Foundation
+import SFMCSDK
+import Cdp
 
 //Request models to match the exact API structure
 struct PersonalizationRequest: Encodable {
@@ -59,7 +61,8 @@ final class EinsteinPersonalizationService{
     
     func fetchNotifications(
         token: TokenResponse.Token,
-        individualId: String
+        individualId: String,
+        decisionId: String //Added parameter to be passed from productcarview
     ) -> AnyPublisher<PersonalizationResponse, Error> {
         let endpoint = "https://\(token.instanceUrl)/personalization/authenticated/decisions"
         
@@ -70,6 +73,10 @@ final class EinsteinPersonalizationService{
         logger.debug("Individual Id \(individualId)")
         logger.debug("token \(token)")
         logger.debug("instance url \(token.instanceUrl)")
+        logger.debug("decisioin id \(decisionId)")
+
+        
+        
         
         // Match the exact request structure from cURL
         let request = PersonalizationRequest(
@@ -87,7 +94,7 @@ final class EinsteinPersonalizationService{
                 .init(
                     id: "",
                     name: "Mobile_App_Header",
-                    decisionId: ""
+                    decisionId: decisionId
                 )
             ],
             profile: [:],

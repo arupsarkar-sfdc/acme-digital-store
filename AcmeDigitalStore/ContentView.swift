@@ -17,12 +17,21 @@ struct ContentView: View {
     init() {
         let appearance = UITabBarAppearance()
         appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = UIColor.systemGray6 // Light accent color
+        appearance.backgroundColor = UIColor.systemGray6
+        
+        // Reduce the tab bar height
+        appearance.stackedLayoutAppearance.normal.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -5)
+        appearance.stackedLayoutAppearance.selected.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -5)
+        
+        
         UITabBar.appearance().standardAppearance = appearance
         
         if #available(iOS 15.0, *) {
             UITabBar.appearance().scrollEdgeAppearance = appearance
         }
+        
+        // Set smaller default height
+        UITabBar.appearance().bounds.size.height = 50
     }
     
     var body: some View {

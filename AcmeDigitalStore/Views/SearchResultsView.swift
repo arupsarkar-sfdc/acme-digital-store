@@ -10,6 +10,7 @@ import SwiftUI
 struct SearchResultsView: View {
     let results: [Product]
     var viewModel: StoreViewModel
+    var einsteinPersonalizationViewModel: EinsteinPersonalizationViewModel
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -19,7 +20,7 @@ struct SearchResultsView: View {
             ScrollView(.vertical, showsIndicators: true) {
                 VStack(spacing: 15) {
                     ForEach(results) { product in
-                        ProductCardView(product: product, viewModel: viewModel)
+                        ProductCardView(product: product, viewModel: viewModel, einsteinPersonalizationViewModel: einsteinPersonalizationViewModel)
                     }
                 }
                 .padding(.horizontal)

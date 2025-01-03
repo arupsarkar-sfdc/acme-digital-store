@@ -73,34 +73,34 @@ class StoreViewModel: ObservableObject {
         let deviceId = UIDevice.current.identifierForVendor?.uuidString ?? UUID().uuidString
               logger.debug("Device ID for personalization: \(deviceId)")
 
-        personalizationService.fetchNotifications(
-            token: token, individualId: deviceId
-        )
-            .receive(on: DispatchQueue.main)
-            .handleEvents(
-                receiveSubscription: { [weak self] _ in
-                    self?.isLoading = true
-                    self?.logger.debug("Personalization request started")
-                },
-                receiveCompletion: { [weak self] completion in
-                    self?.isLoading = false
-                    if case .failure(let error) = completion {
-                        self?.logger.debug("Personalization request failed: \(error.localizedDescription)")
-                        self?.errorMessage = error.localizedDescription
-                    }
-                }
-            )
-            .sink(
-                receiveCompletion: { [weak self] completion in
-                              if case .failure(let error) = completion {
-                                  self?.logger.debug("Error: \(error)")
-                              }
-                          },
-                          receiveValue: { [weak self] response in
-                              self?.updateProductsWithPersonalization(response)
-                          }
-            )
-            .store(in: &cancellables)
+//        personalizationService.fetchNotifications(
+//            token: token, individualId: deviceId
+//        )
+//            .receive(on: DispatchQueue.main)
+//            .handleEvents(
+//                receiveSubscription: { [weak self] _ in
+//                    self?.isLoading = true
+//                    self?.logger.debug("Personalization request started")
+//                },
+//                receiveCompletion: { [weak self] completion in
+//                    self?.isLoading = false
+//                    if case .failure(let error) = completion {
+//                        self?.logger.debug("Personalization request failed: \(error.localizedDescription)")
+//                        self?.errorMessage = error.localizedDescription
+//                    }
+//                }
+//            )
+//            .sink(
+//                receiveCompletion: { [weak self] completion in
+//                              if case .failure(let error) = completion {
+//                                  self?.logger.debug("Error: \(error)")
+//                              }
+//                          },
+//                          receiveValue: { [weak self] response in
+//                              self?.updateProductsWithPersonalization(response)
+//                          }
+//            )
+//            .store(in: &cancellables)
 
     }
     private func updateProductsWithPersonalization(_ response: PersonalizationResponse) {
@@ -153,7 +153,7 @@ class StoreViewModel: ObservableObject {
         
         let lineItem = LineItem(
             catalogObjectType: "Product",
-            catalogObjectId: product.id.uuidString,
+            catalogObjectId: product.id,
             quantity: quantity,
             price: NSDecimalNumber(value: product.price),
             currency: "USD",
@@ -170,7 +170,7 @@ class StoreViewModel: ObservableObject {
     private func trackRemoveFromCart(product: Product, quantity: Int) {
         let lineItem = LineItem(
             catalogObjectType: "Product",
-            catalogObjectId: product.id.uuidString,
+            catalogObjectId: product.id,
             quantity: quantity
         )
         logger.debug("removeToCart - lineItem: \(lineItem.catalogObjectId)")

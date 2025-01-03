@@ -11,7 +11,8 @@ import SwiftUI
 struct HomeView: View {
     @StateObject private var viewModel = StoreViewModel()
     @State private var showProfileModal = false
-    @StateObject private var personalizationViewModel = EinsteinPersonalizationViewModel()
+    //@StateObject private var personalizationViewModel = EinsteinPersonalizationViewModel()
+    @StateObject private var personalizationViewModel = EinsteinPersonalizationViewModel.shared
     
     var body: some View {
         NavigationView{
@@ -21,9 +22,6 @@ struct HomeView: View {
                 VStack(alignment: .leading, spacing: 12) {
                     Text("Acme Store")
                         .font(.largeTitle.bold())
-//                    Text("Discover Amazing Products")
-//                        .font(.title2.weight(.semibold))
-//                        .foregroundStyle(.primary)
                     Text("Shop with confidence")
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
@@ -37,12 +35,20 @@ struct HomeView: View {
                 if viewModel.searchText.isEmpty {
                     ScrollView {
                         VStack(spacing: 20) {
-                            TrendingProductsView(trendingProducts: viewModel.trendingProducts, viewModel: viewModel)
-                            MostSearchedView(mostSearchedProducts: viewModel.mostSearchedProducts, viewModel: viewModel)
+                            TrendingProductsView(
+                                trendingProducts: viewModel.trendingProducts,
+                                viewModel: viewModel,
+                                einsteinPersonalizationViewModel: personalizationViewModel
+                            )
+                            MostSearchedView(
+                                mostSearchedProducts: viewModel.mostSearchedProducts,
+                                viewModel: viewModel,
+                                einsteinPersonalizationViewModel: personalizationViewModel
+                            )
                         }
                     }
                 } else {
-                    SearchResultsView(results: viewModel.searchResults, viewModel: viewModel)
+                    SearchResultsView(results: viewModel.searchResults, viewModel: viewModel, einsteinPersonalizationViewModel: personalizationViewModel)
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
@@ -58,7 +64,9 @@ struct HomeView: View {
                 }
                 
                 ToolbarItem(placement: .principal) {
-                                    NotificationBubbleView()
+                    NotificationBubbleView(
+                        personalizationViewModel: personalizationViewModel
+                    )
                                 }
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
