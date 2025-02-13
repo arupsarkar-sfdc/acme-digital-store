@@ -105,6 +105,21 @@ EinsteinPersonalizationService provides AI-driven recommendations tailored to in
 ### Privacy Compliance
 The ConsentService ensures compliance with privacy regulations like GDPR by managing user consent preferences effectively.
 
+## Embedded Videos
+
+To better understand the features of the AcmeDigitalStore application, check out the following video tutorials:
+
+### Real Time Einstein Personalization and Mobile Engagement
+[![RT Personalization and Engagement Insights](https://share.vidyard.com/watch/5h3CHqzXzuB8rQwR4vSHWo?)
+
+### Agentforce Chat
+[![Agentic AI Chatbot](https://share.vidyard.com/watch/HH2aF8pAX4uZVmNaPw2Fe9?)
+
+### Ingestion API and Vector Database
+[![Data Cloud VDB and Ingestion API](https://share.vidyard.com/watch/ntWrTYkD8Ga7r8ZWJucZdt?)
+
+Click on any of the thumbnails above to watch the respective videos on Vidyard!
+
 ---
 
 ## How to Run
