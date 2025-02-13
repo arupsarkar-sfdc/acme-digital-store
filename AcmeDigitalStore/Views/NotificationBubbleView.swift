@@ -257,7 +257,7 @@ struct RefreshButton: View {
     
     var body: some View {
         Button(action: {
-            storeViewModel.fetchPersonalizedProducts()
+//            storeViewModel.fetchPersonalizedProducts()
             dismiss()
         }) {
             HStack {

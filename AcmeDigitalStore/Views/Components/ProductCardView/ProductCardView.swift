@@ -16,6 +16,7 @@ struct ProductCardView: View {
     private let engagementService = EngagementTrackingService.shared
     //declare the logger service
     private let logger = DataCloudLoggingService.shared
+    @State private var isFavorite = false
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -26,15 +27,19 @@ struct ProductCardView: View {
                 .clipped(antialiased: true)
                 .cornerRadius(8)
                 .overlay(
-                           Button(action: { /* Add to favorites */ }) {
-                               Image(systemName: "heart")
-                                   .padding(8)
-                                   .background(.ultraThinMaterial)
-                                   .clipShape(Circle())
-                           }
-                           .padding(8),
-                           alignment: .topTrailing
-                       )
+                    Button(action: {
+                        isFavorite.toggle()
+                        trackFavorite(product: product)
+                    }) {
+                        Image(systemName: isFavorite ? "heart.fill" : "heart")
+                            .foregroundColor(isFavorite ? .red : .gray)
+                            .padding(8)
+                            .background(.ultraThinMaterial)
+                            .clipShape(Circle())
+                    }
+                    .padding(8),
+                    alignment: .topTrailing
+                )
             Text(product.name)
                 .font(.subheadline)
             Text("$\(product.price, specifier: "%.2f")")
@@ -83,6 +88,14 @@ struct ProductCardView: View {
         .sheet(isPresented: $showProductDetail) {
             ProductDetailView(product: product)
         }
+        
+    }
+    
+    private func trackFavorite(product: Product) {
+        logger.debug("Favorite clicked")
+        // create a product based on the product model and call viewModel.addToFavorite func with product as func parameter
+        //let product = Product(id: "1234", name: "Product", price: 100, promotion: "PROMO")
+        viewModel.addToFavorite(product: product)
         
     }
 }

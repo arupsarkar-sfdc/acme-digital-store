@@ -46,6 +46,11 @@ struct ContentView: View {
                     Image(systemName: "person.crop.circle.fill")
                     Text("Account")
                 }
+            ChatView()
+                .tabItem {
+                    Image(systemName: "message.circle.fill")
+                    Text("Agentforce")
+                }
             ReviewsView()
                 .tabItem {
                     Image(systemName: "star.fill")

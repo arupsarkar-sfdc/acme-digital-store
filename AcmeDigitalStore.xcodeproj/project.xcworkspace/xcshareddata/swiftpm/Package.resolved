@@ -1,5 +1,5 @@
 {
-  "originHash" : "ab7ab245b62b9ef8d4c03573c2aa3f063f62743d3ff0233c1b51a7ed37769c44",
+  "originHash" : "c22d9544285aab5f3a971c9160786977b4b2e1f63440cba38363cdd2a752847e",
   "pins" : [
     {
       "identity" : "mobile-sdk-cdp-ios",
@@ -17,6 +17,15 @@
       "state" : {
         "revision" : "526530898db36eb3974fe191f100392e7afaa242",
         "version" : "1.1.3"
+      }
+    },
+    {
+      "identity" : "swift-package-inappmessaging",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Salesforce-Async-Messaging/Swift-Package-InAppMessaging",
+      "state" : {
+        "revision" : "52f23fefddd9d9021ff202ebd4a60ede0f0aa434",
+        "version" : "1.7.0"
       }
     }
   ],

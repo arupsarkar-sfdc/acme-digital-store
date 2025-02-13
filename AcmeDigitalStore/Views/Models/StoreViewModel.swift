@@ -59,19 +59,19 @@ class StoreViewModel: ObservableObject {
         mostSearchedProducts = Product.mockMostSearchedProducts()
     }
     
-    func fetchPersonalizedProducts() {
-        logger.debug("Starting personalization fetch")
-
-        let token = TokenResponse.Token(
-            accessToken: UserDefaults.standard.string(forKey: "storedAccessToken") ?? "",
-            expiresIn: UserDefaults.standard.integer(forKey: "storedExpiresIn"),
-            instanceUrl: UserDefaults.standard.string(forKey: "storedInstanceUrl") ?? "",
-            issuedTokenType: UserDefaults.standard.string(forKey: "storedIssuedTokenType") ?? "",
-            tokenType: UserDefaults.standard.string(forKey: "storedTokenType") ?? ""
-        )
-        
-        let deviceId = UIDevice.current.identifierForVendor?.uuidString ?? UUID().uuidString
-              logger.debug("Device ID for personalization: \(deviceId)")
+//    func fetchPersonalizedProducts() {
+//        logger.debug("Starting personalization fetch")
+//
+//        let token = TokenResponse.Token(
+//            accessToken: UserDefaults.standard.string(forKey: "storedAccessToken") ?? "",
+//            expiresIn: UserDefaults.standard.integer(forKey: "storedExpiresIn"),
+//            instanceUrl: UserDefaults.standard.string(forKey: "storedInstanceUrl") ?? "",
+//            issuedTokenType: UserDefaults.standard.string(forKey: "storedIssuedTokenType") ?? "",
+//            tokenType: UserDefaults.standard.string(forKey: "storedTokenType") ?? ""
+//        )
+//        
+//        let deviceId = UIDevice.current.identifierForVendor?.uuidString ?? UUID().uuidString
+//              logger.debug("Device ID for personalization: \(deviceId)")
 
 //        personalizationService.fetchNotifications(
 //            token: token, individualId: deviceId
@@ -102,7 +102,8 @@ class StoreViewModel: ObservableObject {
 //            )
 //            .store(in: &cancellables)
 
-    }
+//    }
+    
     private func updateProductsWithPersonalization(_ response: PersonalizationResponse) {
         logger.debug("Processing personalization response")
         // Update products based on personalization response
@@ -175,6 +176,31 @@ class StoreViewModel: ObservableObject {
         )
         logger.debug("removeToCart - lineItem: \(lineItem.catalogObjectId)")
         let event = RemoveFromCartEvent(lineItem: lineItem)
+        SFMCSdk.track(event: event)
+    }
+    
+    func addToFavorite(product: Product) {
+        logger.debug("addToFavorite - \(product.name)")
+        
+        guard let event = CustomEvent(
+            name: "addToFavorite",
+            attributes: [
+                "product": product.name,
+                "productId": product.id,
+                "productPrice": product.price,
+                "giftMessage": "Happy Birthday!",
+                "giftWrap": "Yes",
+                "specialAttributes": [
+                    "paperColor": "Red",
+                    "occasion": "Birthday",
+                    "size": "Medium",
+                    "ribbon": "Yes"
+                ]
+            ]
+        ) else {
+            logger.error("addToFavorite - failed to create CustomEvent")
+            return
+        }
         SFMCSdk.track(event: event)
     }
     

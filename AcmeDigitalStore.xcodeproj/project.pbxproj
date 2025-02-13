@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E63CE4792CEAFBE800349FF6 /* Cdp in Frameworks */ = {isa = PBXBuildFile; productRef = E63CE4782CEAFBE800349FF6 /* Cdp */; };
 		E63CE47B2CEAFBED00349FF6 /* SFMCSDK in Frameworks */ = {isa = PBXBuildFile; productRef = E63CE47A2CEAFBED00349FF6 /* SFMCSDK */; };
+		E6BC5FDA2D4981E6009510F6 /* Swift-InAppMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = E6BC5FD92D4981E6009510F6 /* Swift-InAppMessaging */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 			files = (
 				E63CE47B2CEAFBED00349FF6 /* SFMCSDK in Frameworks */,
 				E63CE4792CEAFBE800349FF6 /* Cdp in Frameworks */,
+				E6BC5FDA2D4981E6009510F6 /* Swift-InAppMessaging in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,6 +144,7 @@
 			packageProductDependencies = (
 				E63CE4782CEAFBE800349FF6 /* Cdp */,
 				E63CE47A2CEAFBED00349FF6 /* SFMCSDK */,
+				E6BC5FD92D4981E6009510F6 /* Swift-InAppMessaging */,
 			);
 			productName = AcmeDigitalStore;
 			productReference = E637D9BF2CC94D1C00B693ED /* AcmeDigitalStore.app */;
@@ -228,6 +231,7 @@
 			packageReferences = (
 				E637DA2E2CC9F7A500B693ED /* XCRemoteSwiftPackageReference "sfmc-sdk-ios" */,
 				E637DA2F2CC9F7CA00B693ED /* XCRemoteSwiftPackageReference "mobile-sdk-cdp-ios" */,
+				E6BC5FD52D48365C009510F6 /* XCRemoteSwiftPackageReference "Swift-Package-InAppMessaging" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = E637D9C02CC94D1C00B693ED /* Products */;
@@ -436,7 +440,10 @@
 				INFOPLIST_FILE = AcmeDigitalStore/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Acme Digital Store";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Used when sending an image to an agent.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We use your location to provide personalized shopping recommendations.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Used when sending an image to an agent.";
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "This identifier will be used to deliver personalized shopping recommendations and improve your shopping experience.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -470,7 +477,10 @@
 				INFOPLIST_FILE = AcmeDigitalStore/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Acme Digital Store";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Used when sending an image to an agent.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We use your location to provide personalized shopping recommendations.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Used when sending an image to an agent.";
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "This identifier will be used to deliver personalized shopping recommendations and improve your shopping experience.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -620,6 +630,14 @@
 				minimumVersion = 2.0.4;
 			};
 		};
+		E6BC5FD52D48365C009510F6 /* XCRemoteSwiftPackageReference "Swift-Package-InAppMessaging" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Salesforce-Async-Messaging/Swift-Package-InAppMessaging";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.7.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -632,6 +650,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E637DA2E2CC9F7A500B693ED /* XCRemoteSwiftPackageReference "sfmc-sdk-ios" */;
 			productName = SFMCSDK;
+		};
+		E6BC5FD92D4981E6009510F6 /* Swift-InAppMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E6BC5FD52D48365C009510F6 /* XCRemoteSwiftPackageReference "Swift-Package-InAppMessaging" */;
+			productName = "Swift-InAppMessaging";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
