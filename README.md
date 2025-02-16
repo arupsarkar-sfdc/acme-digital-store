@@ -109,18 +109,14 @@ The ConsentService ensures compliance with privacy regulations like GDPR by mana
 
 To better understand the features of the AcmeDigitalStore application, check out the following video tutorials:
 
-### Real Time Einstein Personalization and Mobile Engagement
-[![RT Personalization]
-(https://play.vidyard.com/5h3CHqzXzuB8rQwR4vSHWo)
+### [Real Time Einstein Personalization and Mobile Engagement](pplx://action/followup)
+[![RT Personalization](https://play.vidyard.com/5h3CHqzXzuB8rQwR4vSHWo.jpg)](https://play.vidyard.com/5h3CHqzXzuB8rQwR4vSHWo)
 
-### Agentforce Chat
-[![Agentic AI Chatbot]
-(https://play.vidyard.com/HH2aF8pAX4uZVmNaPw2Fe9)
+### [Agentforce Chat](pplx://action/followup)
+[![Agentic AI Chatbot](https://play.vidyard.com/HH2aF8pAX4uZVmNaPw2Fe9.jpg)](https://play.vidyard.com/HH2aF8pAX4uZVmNaPw2Fe9)
 
-
-### Ingestion API and Vector Database
-[![Data Cloud VDB and Ingestion API]
-(https://share.vidyard.com/watch/ntWrTYkD8Ga7r8ZWJucZdt)
+### [Ingestion API and Vector Database](pplx://action/followup)
+[![Data Cloud VDB and Ingestion API](https://share.vidyard.com/watch/ntWrTYkD8Ga7r8ZWJucZdt.jpg)](https://share.vidyard.com/watch/ntWrTYkD8Ga7r8ZWJucZdt)
 
 Click on any of the thumbnails above to watch the respective videos on Vidyard!
 
