@@ -125,7 +125,7 @@ Click on any of the thumbnails above to watch the respective videos on Vidyard!
 
 We would like to thank the following contributor(s) for their valuable contributions to this project:
 
-- [@username](https://github.com/brendansheridan) - Added MIAW setup, configuration, agent and flow in service cloud org.
+- [@brendansheridan](https://github.com/brendansheridan) - Added MIAW setup, configuration, agent and flow in service cloud org.
 
 Your contributions make this project better! 🎉
 ## How to Run
