@@ -121,7 +121,13 @@ To better understand the features of the AcmeDigitalStore application, check out
 Click on any of the thumbnails above to watch the respective videos on Vidyard!
 
 ---
+## Contributors
 
+We would like to thank the following contributor(s) for their valuable contributions to this project:
+
+- [@username](https://github.com/brendansheridan) - Added MIAW setup, configuration, agent and flow in service cloud org.
+
+Your contributions make this project better! 🎉
 ## How to Run
 
 1. Clone the repository:
