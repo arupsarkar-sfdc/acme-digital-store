@@ -33,7 +33,7 @@ final class TokenService {
     private init() {}
     
     func fetchToken() -> AnyPublisher<TokenResponse, Error> {
-        guard let url = URL(string: "http://localhost:8081/get-token") else {
+        guard let url = URL(string: "https://acme-dcunited-connector-app-58a61db33e61.herokuapp.com/get-token") else {
             return Fail(error: URLError(.badURL)).eraseToAnyPublisher()
         }
         

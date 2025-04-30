@@ -39,7 +39,7 @@ struct PersonalizationRequest: Encodable {
 //Response models to match the exact API response
 struct PersonalizationResponse: Decodable {
     let personalizations: [Personalization]
-    let diagnostics: [String]
+    let diagnostics: [Diagnostic]
     let requestId: String
     
     struct Personalization: Decodable {
@@ -49,6 +49,11 @@ struct PersonalizationResponse: Decodable {
         let data: [String]
         let attributes: [String: String]
         let diagnostics: [String]
+    }
+    
+    struct Diagnostic: Decodable {
+        let code: String
+        let description: String
     }
 }
 
@@ -73,7 +78,7 @@ final class EinsteinPersonalizationService{
         logger.debug("Individual Id \(individualId)")
         logger.debug("token \(token)")
         logger.debug("instance url \(token.instanceUrl)")
-        logger.debug("decisioin id \(decisionId)")
+        logger.debug("decision id \(decisionId)")
 
         
         
